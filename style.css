@@ -13,9 +13,9 @@ section {
     align-items: center;
 }
 
-/* h2 {
+h2 {
     text-align: center;
-} */
+}
 
 .container {
     width: 800px;
@@ -29,4 +29,16 @@ section {
 
 .hide {
     display: none;
+}
+
+body {
+    background-color: beige
+}
+
+.controls {
+    text-align: center;
+}
+
+#instruction {
+text-align: center;
 }
