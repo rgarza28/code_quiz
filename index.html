@@ -5,44 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 
+
+
     <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1"><span id="countdown"></span></span>
+        <div class="col-3">
+            <a href="highscores.html">
+                <h3>View High Scores</h3>
+            </a>
+        </div>
+        <div class="col-7"></div>
+        <div class="col-2">
+            <span class="navbar-brand mb-0 h1">
+                <span style="text-align: right" class="text-right" id="countdown">Timer: </span></span>
+        </div>
     </nav>
     <section>
         <div class="container">
 
 
-            <div>
+            <div id="start-section" class="row">
                 <h2>Coding Quiz Challenge</h2>
                 <p>Try to answer as many code-related questions as possible correctly. Answering incorrectly will
                     penalize
                     your score/time by 10 seconds.</p>
             </div>
-            <div id="question-container" class="hide">
+            <div id="question-container" class="hide" class="row">
                 <div id="question">Question</div>
                 <div id="answer-buttons" class="bttn-grid">
-                    <button class="bttn">Answer 1</button>
-                    <button class="bttn">Answer 2</button>
-                    <button class="bttn">Answer 3</button>
-                    <button class="bttn">Answer 4</button>
                 </div>
             </div>
-            <div class="controls">
+
+            <div id="over" class="hide">
+                <h3>All Done!</h3>
+                <p>Your final score: <div id="final-score"></div>
+                </p>
+                <h4>Enter Your Initials:</h4><input id="initials" type="text" />
+                <button id="submit">Submit</button>
+            </div>
+
+
+
+            <div class="controls" class="row">
                 <button id="start-bttn" class="start-bttn bttn">Start</button>
-                <button id="start-next" class="start-bttn bttn hide">Next</button>
+                <!-- <button id="start-next" class="start-bttn bttn hide">Next</button> -->
+            </div>
+
+            <div id="correctAnswer" class="hide" class="row">
+                <div class="col-3"></div>
+                <div class="col-5">
+                    <h5>Correct!</h5>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div id="incorrectAnswer" class="hide">
+                <h5>Incorrect!</h6>
             </div>
 
         </div>
 
+
+
+
+
+
+
     </section>
+
 
 
     <script defer src="script.js"></script>
