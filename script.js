@@ -10,6 +10,13 @@ var gameOver = document.getElementById('over');
 var finalScore = document.getElementById('final-score');
 var startSection = document.getElementById('start-section');
 
+var userInitials = document.querySelector("#initials");
+var submitButton = document.querySelector("#submit");
+
+// var userLast = document.querySelector("#firstPlace");
+
+
+
 let shuffledQuestions
 var currentQuestionIndex = 0
 
@@ -27,30 +34,30 @@ const questions = [
         ]
     },
     {
-        question: "Question 2",
+        question: "How can a variable be declared?",
         answers: [
-            { text: "Answer 1", correct: false },
-            { text: "Anwser 2", correct: false },
-            { text: "Anwser 3", correct: true },
-            { text: "Anwser 4", correct: false },
+            { text: "var", correct: false },
+            { text: "const", correct: false },
+            { text: "let", correct: false },
+            { text: "all the above", correct: true },
         ]
     },
     {
-        question: "Question 3",
+        question: "What is the reccomended location for placing the .js file link in the html file?",
         answers: [
-            { text: "Answer 5", correct: false },
-            { text: "Answer 6", correct: false },
-            { text: "Answer 7", correct: true },
-            { text: "Answer 8", correct: false },
+            { text: "head", correct: false },
+            { text: "end of body", correct: true },
+            { text: "beginning of body", correct: false },
+            { text: "below body", correct: false },
         ]
     },
     {
-        question: "Question 4",
+        question: "How many columns are present in the Bootstrap Grid System?",
         answers: [
-            { text: "Answer 9", correct: false },
-            { text: "Answer 10", correct: false },
-            { text: "Answer 11", correct: true },
-            { text: "Answer 12", correct: false },
+            { text: "12", correct: true },
+            { text: "10", correct: false },
+            { text: "8", correct: false },
+            { text: "6", correct: false },
         ]
     },
     {
@@ -67,31 +74,20 @@ const questions = [
 
 const amountQuestions = questions.length - 1;
 
-startButton.addEventListener("click", startGame)
+startButton.addEventListener("click", startGame);
 
 
 function startGame() {
     countDownEnabled = true;
     countdown();
-    //document.getElementById('start-section').classList.add('hide');
-    // shuffledQuestions = questions.sort(() => Math.random() - .5)
     startSection.classList.add("hide")
     questionContainerElement.classList.remove("hide")
     startButton.classList.add("hide")
-    // setNextQuestion()
     showQuestion(currentQuestionIndex)
-    // var seconds = 100, $seconds = document.querySelector('#countdown');
-    // (function countdown() {
-    //     $seconds.textContent = seconds + ' second' + (seconds == 1 ? '' : 's')
-    //     if (seconds-- > 0) setTimeout(countdown, 1000)
-    // })();
+
 }
 
-// function setNextQuestion() {
-//     // resetState()
-//     showQuestion(shuffledQuestions[currentQuestionIndex])
 
-// }
 
 function showQuestion(index) {
     answerButtonsElement.innerHTML = '';
@@ -106,23 +102,11 @@ function showQuestion(index) {
             button.dataset.correct = 'false';
         }
 
-        // answer.correct ? button.dataset.correct = 'true' : button.dataset.correct = 'false';
-
-        // if (answer.correct) {
-        //     button.dataset.correct = answer.correct
-        // }
         button.addEventListener("click", selectAnswer)
         answerButtonsElement.appendChild(button)
     })
 }
 
-// function resetState() {
-//     // nextButton.classList.add("hide")
-//     while (answerButtonsElement.firstChild) {
-//         answerButtonsElement.removeChild
-//             (answerButtonsElement.firstChild)
-//     }
-// }
 function selectAnswer() {
     if (this.dataset.correct == "true") {
         //countDownEnabled = false;
@@ -158,7 +142,7 @@ function selectAnswer() {
 
 
         } else {
-            console.log('game was ended');
+            // console.log('game was ended');
             countDownEnabled = false;
             endGame();
 
@@ -187,3 +171,20 @@ function endGame() {
     gameOver.classList.remove('hide');
     questionContainerElement.classList.add("hide")
 }
+
+submitButton.addEventListener("click", function () {
+
+    var user = {
+        userName: userInitials.value.trim()
+    };
+
+    // event.preventDefault();
+    localStorage.setItem("user", JSON.stringify(user));
+
+    window.location.href = "highscores.html";
+
+    // var lastUser = JSON.parse(localStorage.getItem("user"));
+    // userLast.textcontent = lastUser.userName;
+
+
+});

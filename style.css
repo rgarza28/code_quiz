@@ -25,6 +25,7 @@ h2 {
 
 .bttn-grid {
     display: grid;
+    background-color: blue;
 }
 
 .hide {
