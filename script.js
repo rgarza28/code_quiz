@@ -173,35 +173,6 @@ function endGame() {
 }
 
 submitButton.addEventListener("click", function () {
-
-    // var user = {
-    //     userName: userInitials.value
-    // };
-
-    // var userScores = {
-    //     score1:
-    //     {
-    //         score: finalScore.innerHTML,
-    //         userName: userInitials.value,
-    //     },
-    //     score2:
-    //     {
-    //         score: finalScore.innerHTML,
-    //         userName: userInitials.value,
-    //     },
-    //     score3:
-    //     {
-    //         score: finalScore.innerHTML,
-    //         userName: userInitials.value,
-    //     }
-    // };
-    // console.log("in");
-    // console.log("testrstsersefsdf" + JSON.stringify(userScores));
-    // localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("userScoreTempScore", JSON.stringify(finalScore.innerHTML));
-    localStorage.setItem("userScoreTempInitials", JSON.stringify(userInitials.value));
-
+    localStorage.setItem("userScoreTemp", JSON.stringify(finalScore.innerHTML + " - " + userInitials.value));
     window.location.href = "highscores.html";
-
-
 });
