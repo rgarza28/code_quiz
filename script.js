@@ -13,7 +13,7 @@ var startSection = document.getElementById('start-section');
 var userInitials = document.querySelector("#initials");
 var submitButton = document.querySelector("#submit");
 
-// var userLast = document.querySelector("#firstPlace");
+
 
 
 
@@ -61,12 +61,12 @@ const questions = [
         ]
     },
     {
-        question: "Question 5",
+        question: "The condition in an if / else statement is enclosed within ______?",
         answers: [
-            { text: "Answer 13", correct: false },
-            { text: "Answer 14", correct: false },
-            { text: "Answer 15", correct: true },
-            { text: "Answer 16", correct: false },
+            { text: "{}", correct: false },
+            { text: "()", correct: true },
+            { text: "[]", correct: false },
+            { text: "<>", correct: false },
 
         ]
     }
@@ -174,17 +174,34 @@ function endGame() {
 
 submitButton.addEventListener("click", function () {
 
-    var user = {
-        userName: userInitials.value.trim()
-    };
+    // var user = {
+    //     userName: userInitials.value
+    // };
 
-    // event.preventDefault();
-    localStorage.setItem("user", JSON.stringify(user));
+    // var userScores = {
+    //     score1:
+    //     {
+    //         score: finalScore.innerHTML,
+    //         userName: userInitials.value,
+    //     },
+    //     score2:
+    //     {
+    //         score: finalScore.innerHTML,
+    //         userName: userInitials.value,
+    //     },
+    //     score3:
+    //     {
+    //         score: finalScore.innerHTML,
+    //         userName: userInitials.value,
+    //     }
+    // };
+    // console.log("in");
+    // console.log("testrstsersefsdf" + JSON.stringify(userScores));
+    // localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("userScoreTempScore", JSON.stringify(finalScore.innerHTML));
+    localStorage.setItem("userScoreTempInitials", JSON.stringify(userInitials.value));
 
     window.location.href = "highscores.html";
-
-    // var lastUser = JSON.parse(localStorage.getItem("user"));
-    // userLast.textcontent = lastUser.userName;
 
 
 });
