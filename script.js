@@ -1,3 +1,4 @@
+//Variables tying to html elements
 var startButton = document.getElementById("start-bttn")
 var questionContainerElement = document.getElementById
     ("question-container")
@@ -6,23 +7,20 @@ var incorrectAnswer = document.getElementById("incorrectAnswer")
 
 var questionElement = document.getElementById("question")
 var answerButtonsElement = document.getElementById("answer-buttons")
-var gameOver = document.getElementById('over');
-var finalScore = document.getElementById('final-score');
+var gameOver = document.getElementById("over");
+var finalScore = document.getElementById("final-score");
 var startSection = document.getElementById('start-section');
 
 var userInitials = document.querySelector("#initials");
 var submitButton = document.querySelector("#submit");
 
-
-
-
+var seconds = 100, $seconds = document.querySelector('#countdown');
+var countDownEnabled = false;
 
 let shuffledQuestions
 var currentQuestionIndex = 0
 
-var seconds = 100, $seconds = document.querySelector('#countdown');
-var countDownEnabled = false;
-
+//Quiz questions array
 const questions = [
     {
         question: "What is a Boolean?",
@@ -30,7 +28,7 @@ const questions = [
             { text: "Numbers", correct: false },
             { text: "A group of letters", correct: false },
             { text: "A true false statement", correct: true },
-            { text: "S bean", correct: false },
+            { text: "A bean", correct: false },
         ]
     },
     {
@@ -74,9 +72,8 @@ const questions = [
 
 const amountQuestions = questions.length - 1;
 
+//Start Game
 startButton.addEventListener("click", startGame);
-
-
 function startGame() {
     countDownEnabled = true;
     countdown();
@@ -87,8 +84,7 @@ function startGame() {
 
 }
 
-
-
+//Shows questions
 function showQuestion(index) {
     answerButtonsElement.innerHTML = '';
     questionElement.innerText = questions[index].question
@@ -107,6 +103,7 @@ function showQuestion(index) {
     })
 }
 
+//Select answer for each question
 function selectAnswer() {
     if (this.dataset.correct == "true") {
         //countDownEnabled = false;
@@ -120,7 +117,7 @@ function selectAnswer() {
 
 
         } else {
-            console.log('game was ended');
+            // console.log('game was ended');
             countDownEnabled = false;
             endGame();
 
@@ -152,7 +149,7 @@ function selectAnswer() {
 
 
 
-
+//Timer
 function countdown() {
     $seconds.textContent = seconds + ' second' + (seconds == 1 ? '' : 's')
     if (seconds > 0 && countDownEnabled) {
@@ -166,12 +163,14 @@ function countdown() {
     }
 };
 
+//End Game
 function endGame() {
     finalScore.innerHTML = seconds;
     gameOver.classList.remove('hide');
     questionContainerElement.classList.add("hide")
 }
 
+//Stores score and initals when submit button is clicked
 submitButton.addEventListener("click", function () {
     localStorage.setItem("userScoreTemp", JSON.stringify(finalScore.innerHTML + " - " + userInitials.value));
     window.location.href = "highscores.html";
