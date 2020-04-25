@@ -27,10 +27,10 @@ const questions = [
     {
         question: "What is a Boolean?",
         answers: [
-            { text: "numbers", correct: false },
-            { text: "a group of letters", correct: false },
-            { text: "a true false statement", correct: true },
-            { text: "a bean", correct: false },
+            { text: "Numbers", correct: false },
+            { text: "A group of letters", correct: false },
+            { text: "A true false statement", correct: true },
+            { text: "S bean", correct: false },
         ]
     },
     {
@@ -45,10 +45,10 @@ const questions = [
     {
         question: "What is the reccomended location for placing the .js file link in the html file?",
         answers: [
-            { text: "head", correct: false },
-            { text: "end of body", correct: true },
-            { text: "beginning of body", correct: false },
-            { text: "below body", correct: false },
+            { text: "Head", correct: false },
+            { text: "End of body", correct: true },
+            { text: "Beginning of body", correct: false },
+            { text: "Below body", correct: false },
         ]
     },
     {
